@@ -1,0 +1,1602 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Patricia | My Digital Scrapbook</title>
+
+<style>
+/* =========================
+   BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f2e9;
+    color: #292724;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 70px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(247, 242, 233, 0.95);
+    border-bottom: 1px solid #ddd5c8;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #c88787;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #a66e69;
+}
+
+.menu-button {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 90vh;
+    padding: 90px 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-small {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #77716a;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 95px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: normal;
+    color: #9d7772;
+}
+
+.hero-description {
+    max-width: 450px;
+    margin: 30px 0;
+    color: #77716a;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    background: #292724;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* POLAROID */
+
+.photo-area {
+    position: relative;
+}
+
+.polaroid {
+    width: 290px;
+
+    background: white;
+
+    padding: 14px 14px 25px;
+
+    transform: rotate(4deg);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 330px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e7ddd1;
+
+    color: #77716a;
+
+    font-size: 14px;
+    text-align: center;
+}
+
+.polaroid p {
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.doodle {
+    position: absolute;
+    color: #bd817d;
+}
+
+.star {
+    font-size: 55px;
+    right: -50px;
+    top: -40px;
+}
+
+.heart {
+    font-size: 60px;
+    left: -55px;
+    bottom: 20px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    width: min(1100px, 90%);
+    margin: auto;
+
+    padding: 100px 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 45px;
+}
+
+.section-number {
+    color: #888077;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(32px, 5vw, 52px);
+
+    font-weight: normal;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-note {
+    position: relative;
+
+    padding: 45px;
+
+    background: #eee1aa;
+
+    transform: rotate(-2deg);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.about-note h3 {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.about-note p {
+    color: #514d47;
+
+    margin-bottom: 15px;
+}
+
+.note-pin {
+    position: absolute;
+
+    top: -14px;
+    left: 50%;
+
+    font-size: 22px;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #ddd5c8;
+}
+
+.info-icon {
+    font-size: 25px;
+}
+
+.info-item small {
+    display: block;
+
+    color: #888077;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.info-item p {
+    margin-top: 3px;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.project-card {
+    background: #fffdf8;
+
+    padding: 14px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+
+    transition: 0.3s;
+}
+
+.project-card:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+.project-card:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.project-card:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.project-card:hover {
+    transform: translateY(-8px) rotate(0);
+}
+
+.project-image {
+    height: 220px;
+
+    background: #ddd2c5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #77716a;
+}
+
+.project-image span {
+    font-size: 45px;
+}
+
+.project-content {
+    padding: 20px 5px 10px;
+}
+
+.project-category {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #888077;
+}
+
+.project-content h3 {
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+
+    font-weight: normal;
+
+    margin: 5px 0;
+}
+
+.project-content p {
+    color: #77716a;
+
+    font-size: 14px;
+}
+
+.project-link {
+    margin-top: 15px;
+
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievement-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.achievement {
+    background: #fffdf8;
+
+    border: 1px solid #ddd5c8;
+
+    padding: 28px;
+
+    display: flex;
+
+    gap: 18px;
+}
+
+.achievement-icon {
+    font-size: 28px;
+}
+
+.achievement small {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #888077;
+}
+
+.achievement h3 {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+}
+
+.achievement p {
+    color: #77716a;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   JOURNEY
+========================= */
+
+.timeline {
+    max-width: 800px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 80px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: #d8d0c5;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 160px 1fr;
+
+    margin-bottom: 55px;
+}
+
+.year {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+}
+
+.timeline-content {
+    padding-left: 30px;
+}
+
+.timeline-content h3 {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+}
+
+.timeline-content p {
+    color: #77716a;
+}
+
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr 1fr;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.memory-photo {
+    background: white;
+
+    padding: 12px 12px 38px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.memory-photo:first-child {
+    transform: rotate(-3deg);
+}
+
+.memory-photo:last-child {
+    transform: rotate(3deg);
+}
+
+.memory-placeholder {
+    height: 250px;
+
+    background: #ddd2c5;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #77716a;
+}
+
+.memory-photo p {
+    margin-top: 8px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+}
+
+.memory-note {
+    background: #e9c8c4;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    transform: rotate(2deg);
+}
+
+.memory-note p {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #292724;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 90px 20px 30px;
+}
+
+.footer-small {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.6;
+}
+
+footer h2 {
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+    font-size: clamp(40px, 7vw, 70px);
+
+    margin: 12px 0;
+}
+
+footer p {
+    opacity: 0.65;
+}
+
+.back-top {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    border-bottom: 1px solid white;
+
+    padding-bottom: 3px;
+}
+
+.copyright {
+    margin-top: 80px;
+
+    font-size: 12px;
+
+    opacity: 0.35;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,0.45);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: min(500px, 100%);
+
+    background: #fffdf8;
+
+    padding: 40px;
+
+    position: relative;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.modal-box h2 {
+    font-family: Georgia, serif;
+
+    font-size: 35px;
+
+    font-weight: normal;
+
+    margin: 8px 0 15px;
+}
+
+.modal-box p {
+    color: #77716a;
+
+    margin-bottom: 25px;
+}
+
+.close {
+    position: absolute;
+
+    right: 18px;
+    top: 12px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        padding: 25px 7%;
+
+        background: #f7f2e9;
+
+        border-bottom: 1px solid #ddd5c8;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 70px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .timeline::before {
+        left: 80px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Patricia<span>♡</span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#works">Works</a>
+
+        <a href="#journey">Journey</a>
+
+        <a href="#memories">Memories</a>
+
+    </div>
+
+    <button class="menu-button" id="menuButton">
+        ☰
+    </button>
+
+</nav>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <p class="hero-small">
+            WELCOME TO MY
+        </p>
+
+        <h1>
+            little<br>
+            <span>digital scrapbook</span>
+        </h1>
+
+        <p class="hero-description">
+            A little collection of my works, experiences,
+            memories, and things I've learned along the way.
+        </p>
+
+        <a href="#works" class="button">
+            Explore my work →
+        </a>
+
+    </div>
+
+
+    <div class="photo-area">
+
+        <div class="polaroid">
+
+            <div class="photo-placeholder">
+                YOUR PHOTO HERE
+            </div>
+
+            <p>
+                hello, i'm Patricia ♡
+            </p>
+
+        </div>
+
+        <div class="doodle star">
+            ✦
+        </div>
+
+        <div class="doodle heart">
+            ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section" id="about">
+
+    <div class="section-title">
+
+        <span class="section-number">
+            01
+        </span>
+
+        <h2>
+            A little about me
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-note">
+
+            <div class="note-pin">
+                ✦
+            </div>
+
+            <h3>
+                Hi! I'm Patricia ♡
+            </h3>
+
+            <p>
+                I'm a student who enjoys exploring creative
+                things, making projects, and learning something
+                new along the way.
+            </p>
+
+            <p>
+                This website is my little digital scrapbook
+                where I collect some of my favorite works,
+                experiences, and memories.
+            </p>
+
+        </div>
+
+
+        <div class="info-list">
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    🎨
+                </div>
+
+                <div>
+                    <small>
+                        INTERESTED IN
+                    </small>
+
+                    <p>
+                        Creative projects
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    📚
+                </div>
+
+                <div>
+                    <small>
+                        CURRENTLY
+                    </small>
+
+                    <p>
+                        Learning & growing
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    💡
+                </div>
+
+                <div>
+                    <small>
+                        I LIKE
+                    </small>
+
+                    <p>
+                        Trying new things
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WORKS
+========================= -->
+
+<section class="section" id="works">
+
+    <div class="section-title">
+
+        <span class="section-number">
+            02
+        </span>
+
+        <h2>
+            My little works
+        </h2>
+
+    </div>
+
+    <p class="section-description">
+        Some projects I've created throughout my learning journey.
+    </p>
+
+
+    <div class="project-grid">
+
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <span>🎨</span>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    SCHOOL PROJECT
+                </p>
+
+                <h3>
+                    Creative Poster
+                </h3>
+
+                <p>
+                    A visual project created to communicate
+                    an idea in a simple and creative way.
+                </p>
+
+                <button
+                    class="project-link"
+                    onclick="openProject('Creative Poster')">
+
+                    View project →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <span>✦</span>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    DESIGN
+                </p>
+
+                <h3>
+                    Mind Mapping
+                </h3>
+
+                <p>
+                    Turning information into a visual,
+                    organized, and easy-to-understand design.
+                </p>
+
+                <button
+                    class="project-link"
+                    onclick="openProject('Mind Mapping')">
+
+                    View project →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <span>📒</span>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    CREATIVE WORK
+                </p>
+
+                <h3>
+                    Digital Scrapbook
+                </h3>
+
+                <p>
+                    A collection of information presented
+                    through a scrapbook-inspired layout.
+                </p>
+
+                <button
+                    class="project-link"
+                    onclick="openProject('Digital Scrapbook')">
+
+                    View project →
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span class="section-number">
+            03
+        </span>
+
+        <h2>
+            Little things I'm proud of
+        </h2>
+
+    </div>
+
+
+    <div class="achievement-grid">
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                🏆
+            </div>
+
+            <div>
+
+                <small>
+                    ACHIEVEMENT
+                </small>
+
+                <h3>
+                    1st Place
+                </h3>
+
+                <p>
+                    Creative Digital Library Video Competition
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                ⭐
+            </div>
+
+            <div>
+
+                <small>
+                    EXPERIENCE
+                </small>
+
+                <h3>
+                    Creative Projects
+                </h3>
+
+                <p>
+                    Various school projects and assignments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <small>
+                    PERSONAL
+                </small>
+
+                <h3>
+                    Keep Learning
+                </h3>
+
+                <p>
+                    Always trying to improve and learn new things.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNEY
+========================= -->
+
+<section class="section" id="journey">
+
+    <div class="section-title">
+
+        <span class="section-number">
+            04
+        </span>
+
+        <h2>
+            My journey
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="year">
+                2023
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Starting something new
+                </h3>
+
+                <p>
+                    Beginning a new chapter and discovering
+                    different interests.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="year">
+                2024
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Trying & learning
+                </h3>
+
+                <p>
+                    Exploring new activities and learning
+                    from different experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="year">
+                2025
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Creating more
+                </h3>
+
+                <p>
+                    Making more creative projects and
+                    collecting new experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="year">
+                2026
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Still growing ♡
+                </h3>
+
+                <p>
+                    Learning, creating, and becoming
+                    a better version of myself.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section class="section" id="memories">
+
+    <div class="section-title">
+
+        <span class="section-number">
+            05
+        </span>
+
+        <h2>
+            Little memories
+        </h2>
+
+    </div>
+
+
+    <div class="memory-grid">
+
+
+        <div class="memory-photo">
+
+            <div class="memory-placeholder">
+                PHOTO
+            </div>
+
+            <p>
+                little moment ♡
+            </p>
+
+        </div>
+
+
+        <div class="memory-note">
+
+            <p>
+                "Collecting little moments,
+                one page at a time."
+            </p>
+
+        </div>
+
+
+        <div class="memory-photo">
+
+            <div class="memory-placeholder">
+                PHOTO
+            </div>
+
+            <p>
+                creative day ✦
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p class="footer-small">
+        THANK YOU FOR VISITING
+    </p>
+
+    <h2>
+        that's all for now ♡
+    </h2>
+
+    <p>
+        Made with curiosity, creativity & a little bit of fun.
+    </p>
+
+    <a href="#home" class="back-top">
+        ↑ back to top
+    </a>
+
+    <p class="copyright">
+        © 2026 Patricia — My Digital Scrapbook
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeProject()">
+
+            ×
+
+        </button>
+
+        <p class="project-category">
+            PROJECT
+        </p>
+
+        <h2 id="modalTitle">
+            Project
+        </h2>
+
+        <p>
+            This section can contain a more detailed explanation
+            about the project, the process, your role, and what
+            you learned from making it.
+        </p>
+
+        <button
+            class="button"
+            onclick="closeProject()">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuButton.addEventListener("click", function () {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+const navigationLinks =
+    document.querySelectorAll(".nav-links a");
+
+navigationLinks.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+/* =========================
+   PROJECT MODAL
+========================= */
+
+const modal =
+    document.getElementById("modal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+
+function openProject(projectName) {
+
+    modalTitle.textContent = projectName;
+
+    modal.classList.add("show");
+
+}
+
+
+function closeProject() {
+
+    modal.classList.remove("show");
+
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+
+modal.addEventListener("click", function(event) {
+
+    if (event.target === modal) {
+
+        closeProject();
+
+    }
+
+});
+
+
+/* ESC TO CLOSE */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeProject();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
